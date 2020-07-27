@@ -1,0 +1,22 @@
+territory:
+  enabled: true
+  max-claims: 9
+  vault:
+    enabled: false
+    claim-cost: 1000
+contributions:
+  diamond: 60000
+timers:
+  war-period: 3600000
+  grace-period: 1800000
+tribes:
+  enabled: true
+  max-players: 6
+  friendly-fire: false
+  name-valid-characters: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_'
+game-settings:
+  current-mode: "GRACE"
+  peace-time: 0
+  war-time: 0
+  grace-time: 0
+  offered-time: 1800000
