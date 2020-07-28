@@ -39,16 +39,26 @@ public class Main extends JavaPlugin {
             PotionEffectType.WATER_BREATHING, PotionEffectType.SPEED,
             PotionEffectType.LUCK, PotionEffectType.INCREASE_DAMAGE
     };
-
+    public static final Map<Player, Extension> playerExtensions = new HashMap();
     public static Main plugin;
     public static Economy econ = null;
+    public final String[] serverRules = new String[]{
+            "Respect other players in chat.",
+            "No racism / discrimination allowed.",
+            "No excessive swearing allowed.",
+            "No spam allowed. Keep CAPS to a minimum.",
+            "Do not hack / cheat / exploit.",
+            "Do not advertise.",
+            "Do not abuse any game mechanic that seems unfair.",
+            "Operators decide what is fair or inappropriate.",
+            "Operators may not enforce rules that do not exist.",
+            "If you feel an Operator is abusive, contact Aztekka."
+    };
     private final Map<String, Class<? extends PluginCommand>> commands = new HashMap();
     public boolean isEnabled = false;
     public File dataConfigFile;
     public File configFile;
     private FileConfiguration dataConfig;
-
-    public static final Map<Player, Extension> playerExtensions = new HashMap();
 
     public static Set<String> getChunksByOwner(String owner) {
         ConfigurationSection chunks = plugin.getDataConfig().getConfigurationSection("chunks");
@@ -145,19 +155,6 @@ public class Main extends JavaPlugin {
         }, 0l, 6000);
     }
 
-    public final String[] serverRules = new String[] {
-            "Respect other players in chat.",
-            "No racism / discrimination allowed.",
-            "No excessive swearing allowed.",
-            "No spam allowed. Keep CAPS to a minimum.",
-            "Do not hack / cheat / exploit.",
-            "Do not advertise.",
-            "Do not abuse any game mechanic that seems unfair.",
-            "Operators decide what is fair or inappropriate.",
-            "Operators may not enforce rules that do not exist.",
-            "If you feel an Operator is abusive, contact Aztekka."
-    };
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         super.onCommand(sender, command, label, args);
@@ -167,7 +164,7 @@ public class Main extends JavaPlugin {
                 switch (command.getName()) {
                     case "rules":
                         p.sendMessage("§aBoogaMC Rules:");
-                        for(int i = 0; i < serverRules.length; i++)
+                        for (int i = 0; i < serverRules.length; i++)
                             p.sendMessage("§6[" + (i + 1) + "] " + serverRules[i]);
                         return true;
                 }

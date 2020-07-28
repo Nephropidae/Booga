@@ -4,7 +4,6 @@ import io.booga.plugin.player.Extension;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Monster;
@@ -20,9 +19,9 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
@@ -30,95 +29,95 @@ import java.util.*;
 
 public class PluginEventListener implements Listener {
 
-    public String[][] newcomerBookPagesTemplate = new String[][] {
-          new String[] {
-                  "Hello, <player_name>!",
-                  "Welcome to BoogaMC!",
-                  "",
-                  "This guide will teach",
-                  "you about Booga, what",
-                  "to do in Booga, and",
-                  "how you can survive.",
-                  "",
-                  "Booga is a dangerous",
-                  "game, where the Gods",
-                  "must be satisfied if",
-                  "there is to be peace."
-          },
-          new String[] {
-                  "There are 3 modes:",
-                  "peace, grace and war",
-                  "",
-                  "War is dangerous.",
-                  "Griefing and PvP is",
-                  "enabled. You'll also",
-                  "be cursed by the",
-                  "Gods every 5 minutes.",
-                  "",
-                  "Peace time is self",
-                  "explanatory. Griefing",
-                  "and PvP are disabled."
-          },
-          new String[] {
-                  "Peace time lasts as",
-                  "long as players",
-                  "offer diamonds to",
-                  "the Gods.",
-                  "",
-                  "Grace time is pretty",
-                  "much the same as",
-                  "peace. Difference is",
-                  "that grace time is the",
-                  "medium between war",
-                  "and peace time."
-          },
-          new String[] {
-                  "If no diamonds are",
-                  "offered before",
-                  "grace time ends,",
-                  "war time will begin.",
-                  "",
-                  "If no diamonds are",
-                  "offered before",
-                  "peace time ends,",
-                  "war time will begin."
-          },
-          new String[] {
-                  "Any protection time",
-                  "granted during grace",
-                  "goes towards peace",
-                  "time. Peace time",
-                  "begins if players",
-                  "offered diamonds",
-                  "during grace time.",
-                  "",
-                  "Each diamond offered",
-                  "grants 1 minute of",
-                  "protection time and",
-                  "5 seconds of",
-                  "3 random blessings."
-          },
-          new String[] {
-                  "In Booga, you can",
-                  "claim world-chunks",
-                  "from the wilderness",
-                  "as personal chunks.",
-                  "",
-                  "Each chunk costs",
-                  "$1,000. You can own",
-                  "a maximum of",
-                  "9 chunks.",
-                  "",
-                  "You earn $10 for",
-                  "every monster slain."
-          }
+    public String[][] newcomerBookPagesTemplate = new String[][]{
+            new String[]{
+                    "Hello, <player_name>!",
+                    "Welcome to BoogaMC!",
+                    "",
+                    "This guide will teach",
+                    "you about Booga, what",
+                    "to do in Booga, and",
+                    "how you can survive.",
+                    "",
+                    "Booga is a dangerous",
+                    "game, where the Gods",
+                    "must be satisfied if",
+                    "there is to be peace."
+            },
+            new String[]{
+                    "There are 3 modes:",
+                    "peace, grace and war",
+                    "",
+                    "War is dangerous.",
+                    "Griefing and PvP is",
+                    "enabled. You'll also",
+                    "be cursed by the",
+                    "Gods every 5 minutes.",
+                    "",
+                    "Peace time is self",
+                    "explanatory. Griefing",
+                    "and PvP are disabled."
+            },
+            new String[]{
+                    "Peace time lasts as",
+                    "long as players",
+                    "offer diamonds to",
+                    "the Gods.",
+                    "",
+                    "Grace time is pretty",
+                    "much the same as",
+                    "peace. Difference is",
+                    "that grace time is the",
+                    "medium between war",
+                    "and peace time."
+            },
+            new String[]{
+                    "If no diamonds are",
+                    "offered before",
+                    "grace time ends,",
+                    "war time will begin.",
+                    "",
+                    "If no diamonds are",
+                    "offered before",
+                    "peace time ends,",
+                    "war time will begin."
+            },
+            new String[]{
+                    "Any protection time",
+                    "granted during grace",
+                    "goes towards peace",
+                    "time. Peace time",
+                    "begins if players",
+                    "offered diamonds",
+                    "during grace time.",
+                    "",
+                    "Each diamond offered",
+                    "grants 1 minute of",
+                    "protection time and",
+                    "5 seconds of",
+                    "3 random blessings."
+            },
+            new String[]{
+                    "In Booga, you can",
+                    "claim world-chunks",
+                    "from the wilderness",
+                    "as personal chunks.",
+                    "",
+                    "Each chunk costs",
+                    "$1,000. You can own",
+                    "a maximum of",
+                    "9 chunks.",
+                    "",
+                    "You earn $10 for",
+                    "every monster slain."
+            }
     };
 
     public ItemStack getNewcomerBook(Player p) {
         List<String> pages = new ArrayList<String>();
-        for(int pageNum = 0; pageNum < newcomerBookPagesTemplate.length; pageNum++) {
+        for (int pageNum = 0; pageNum < newcomerBookPagesTemplate.length; pageNum++) {
             String page = "";
-            for(int lineNum = 0; lineNum < newcomerBookPagesTemplate[pageNum].length; lineNum++) {
+            for (int lineNum = 0; lineNum < newcomerBookPagesTemplate[pageNum].length; lineNum++) {
                 page += newcomerBookPagesTemplate[pageNum][lineNum] + "\n";
             }
             page = page.replaceAll("<player_name>", p.getName());
@@ -171,7 +170,7 @@ public class PluginEventListener implements Listener {
         }
 
         Main.playerExtensions.put(p, new Extension());
-        if(Main.plugin.getDataConfig().contains("players." + p.getUniqueId() + ".friends")) {
+        if (Main.plugin.getDataConfig().contains("players." + p.getUniqueId() + ".friends")) {
             ArrayList<String> friends = (ArrayList<String>) Main.plugin.getDataConfig().getStringList("players." + p.getUniqueId() + ".friends");
             Main.playerExtensions.get(p).friends = friends;
         }
@@ -344,7 +343,7 @@ public class PluginEventListener implements Listener {
             }
 
             Player damager = (Player) e.getDamager();
-            if(e.getEntity() instanceof Player) {
+            if (e.getEntity() instanceof Player) {
                 Player en = (Player) e.getEntity();
                 if (Main.playerExtensions.get(damager).friends.contains(en.getUniqueId().toString())) {
                     e.setDamage(0.0);

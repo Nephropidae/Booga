@@ -8,11 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import java.util.Date;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Declare extends PluginCommand {
 
@@ -72,12 +69,12 @@ public class Declare extends PluginCommand {
                 peaceTime -= new Date().getTime();
                 long warTime = plugin.getConfig().getLong("game-settings.war-time");
                 warTime -= new Date().getTime();
-                switch(args[1]) {
+                switch (args[1]) {
                     case "war":
                         long emeraldsRequired = (long) Math.floor(peaceTime / 40000);
-                        if(mode.equalsIgnoreCase("PEACE")) {
+                        if (mode.equalsIgnoreCase("PEACE")) {
                             ItemStack stack = new ItemStack(Material.EMERALD, (int) emeraldsRequired);
-                            if(emeraldsRequired > 0 && inventoryContains(p.getInventory(), stack)) {
+                            if (emeraldsRequired > 0 && inventoryContains(p.getInventory(), stack)) {
                                 p.sendMessage("§cYour pleas for war have been heard, and has angered the Gods!");
                                 plugin.getConfig().set("game-settings.peace-time", (long) 0);
                                 removeFromInventory(p.getInventory(), stack);
@@ -90,9 +87,9 @@ public class Declare extends PluginCommand {
                         break;
                     case "grace":
                         long diamondsRequired = (long) Math.floor(warTime / 30000) * 2;
-                        if(mode.equalsIgnoreCase("WAR")) {
+                        if (mode.equalsIgnoreCase("WAR")) {
                             ItemStack stack = new ItemStack(Material.DIAMOND, (int) diamondsRequired);
-                            if(diamondsRequired > 0 && inventoryContains(p.getInventory(), stack)) {
+                            if (diamondsRequired > 0 && inventoryContains(p.getInventory(), stack)) {
                                 p.sendMessage("§eYou have appeased the Gods §canger§e, and they have offered you §9grace§e.");
                                 plugin.getConfig().set("game-settings.war-time", (long) 0);
                                 removeFromInventory(p.getInventory(), stack);

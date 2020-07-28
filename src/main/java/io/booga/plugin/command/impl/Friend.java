@@ -26,12 +26,12 @@ public class Friend extends PluginCommand {
             if (args.length > 1) {
                 try {
                     Player friend = plugin.getServer().getPlayer(args[1]);
-                    if(friend == null) {
+                    if (friend == null) {
                         p.sendMessage("Could not find player: " + args[1]);
                         return;
                     }
 
-                    if(!Main.playerExtensions.get(p).friends.contains(friend.getUniqueId().toString())) {
+                    if (!Main.playerExtensions.get(p).friends.contains(friend.getUniqueId().toString())) {
                         Main.playerExtensions.get(p).friends.add(friend.getUniqueId().toString());
                         Main.plugin.getDataConfig().set("players." + p.getUniqueId().toString() + ".friends",
                                 Main.playerExtensions.get(p).friends);

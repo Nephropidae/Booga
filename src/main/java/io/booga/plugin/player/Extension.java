@@ -1,6 +1,6 @@
 package io.booga.plugin.player;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Extension {
 
