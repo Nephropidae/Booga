@@ -78,7 +78,7 @@ public class Offer extends PluginCommand {
 
                 switch (plugin.getConfig().getString("game-settings.current-mode")) {
                     case "WAR":
-                        p.sendMessage("The Gods are angry, and only time will calm them!");
+                        p.sendMessage("§eThe Gods are §cangry§e, and only time will calm them!");
                         break;
                     case "PEACE":
                         long peaceTime = plugin.getConfig().getLong("game-settings.peace-time");
@@ -97,11 +97,11 @@ public class Offer extends PluginCommand {
 
                             plugin.getConfig().set("game-settings.peace-time", peaceTime);
 
-                            p.sendMessage("The Gods are greatful. You've offered: " + offeredMinutes + " minutes and " + offeredSeconds + "seconds worth of protection.");
+                            p.sendMessage("§eThe Gods are greatful. You've offered: " + offeredMinutes + " minutes and " + offeredSeconds + "seconds worth of protection.");
 
                             // TO-DO: Add random positive effect.
                         } else {
-                            p.sendMessage("Could not find stack of " + offeredAmount + " diamonds.");
+                            p.sendMessage("§eYou do not have §b" + offeredAmount + " diamonds§e.");
                         }
                         break;
                     case "GRACE":
@@ -110,38 +110,38 @@ public class Offer extends PluginCommand {
                         if (inventoryContains(p.getInventory(), offeredStack)) {
                             removeFromInventory(p.getInventory(), offeredStack);
 
-                            long offeredMilliseconds = offeredAmount * 60000;
+                            long offeredMilliseconds = offeredAmount * 30000;
 
                             long offeredMinutes = (offeredMilliseconds / 1000) / 60;
                             long offeredSeconds = (offeredMilliseconds / 1000) % 60;
 
-                            offeredTime += offeredAmount * 60000;
+                            offeredTime += offeredMilliseconds;
 
                             donated = true;
 
                             plugin.getConfig().set("game-settings.offered-time", offeredTime);
 
-                            p.sendMessage("The Gods are greatful. You've offered: " + offeredMinutes + " minutes and " + offeredSeconds + " seconds worth of protection.");
+                            p.sendMessage("§eThe Gods are greatful. You've offered: " + offeredMinutes + " minutes and " + offeredSeconds + " seconds worth of protection.");
 
                             // TO-DO: Add random positive effect.
                         } else {
-                            p.sendMessage("Could not find stack of " + offeredAmount + " diamonds.");
+                            p.sendMessage("§eYou do not have §b" + offeredAmount + " diamonds§e.");
                         }
                         break;
                 }
 
                 if (donated) {
-                    int duration = offeredAmount * 5 * 20;
+                    int duration = offeredAmount * 100;
 
                     for (int i = 0; i < offeredAmount; i++) {
                         PotionEffectType type = Main.boosts[ThreadLocalRandom.current().nextInt(Main.boosts.length)];
                         p.addPotionEffect(new PotionEffect(type, duration, ThreadLocalRandom.current().nextInt(2)));
                     }
 
-                    p.sendMessage("The Gods appreciate your offer and bless you.");
+                    p.sendMessage("§eThe Gods appreciate your offer and §abless §eyou.");
                 }
             } else {
-                p.sendMessage("Must specify how many diamonds you wish to offer.");
+                p.sendMessage("§eMust specify how many §bdiamonds §eyou wish to offer.");
             }
         }
     }

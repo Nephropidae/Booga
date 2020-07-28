@@ -40,8 +40,8 @@ public class LoopedLogic extends Script {
                     }
 
                     for (Player p : Main.plugin.getServer().getOnlinePlayers()) {
-                        p.sendMessage("[The Gods] We forgive your disobedience.");
-                        p.sendMessage("[The Gods] You now have a chance to satisfy us.");
+                        p.sendMessage("§eThe Gods: §9We forgive your disobedience.");
+                        p.sendMessage("§eThe Gods: §9You now have a chance to satisfy us.");
                     }
 
                 }
@@ -67,8 +67,8 @@ public class LoopedLogic extends Script {
                     }
 
                     for (Player p : Main.plugin.getServer().getOnlinePlayers()) {
-                        p.sendMessage("[The Gods] You have forgotten us, so we curse you!");
-                        p.sendMessage("[The Gods] We no longer offer you protection from others.");
+                        p.sendMessage("§eThe Gods: §cYou have angered us, so we curse you!");
+                        p.sendMessage("§eThe Gods: §cWe no longer offer you protection from others.");
                     }
                 }
                 break;
@@ -96,8 +96,8 @@ public class LoopedLogic extends Script {
                         }
 
                         for (Player p : Main.plugin.getServer().getOnlinePlayers()) {
-                            p.sendMessage("[The Gods] You have forgotten us, so we curse you!");
-                            p.sendMessage("[The Gods] We no longer offer you protection from others.");
+                            p.sendMessage("§eThe Gods: §cYou have angered us, so we curse you!");
+                            p.sendMessage("§eThe Gods: §cWe no longer offer you protection from others.");
                         }
                     } else {
                         Main.plugin.getConfig().set("game-settings.current-mode", "PEACE");
@@ -115,8 +115,8 @@ public class LoopedLogic extends Script {
                         }
 
                         for (Player p : Main.plugin.getServer().getOnlinePlayers()) {
-                            p.sendMessage("[The Gods] You have satisfied us, so we will now protect you.");
-                            p.sendMessage("[The Gods] Offer to us and we'll protect you even longer!");
+                            p.sendMessage("§eThe Gods: §aYou have satisfied us, so we will now protect you.");
+                            p.sendMessage("§eThe Gods: §aOffer to us and we'll protect you even longer!");
                         }
                     }
                 }

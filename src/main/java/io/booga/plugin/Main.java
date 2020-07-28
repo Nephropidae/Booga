@@ -106,6 +106,7 @@ public class Main extends JavaPlugin {
         commands.put("balance", Balance.class);
         commands.put("friend", Friend.class);
         commands.put("unfriend", Unfriend.class);
+        commands.put("declare", Declare.class);
     }
 
     @Override

@@ -34,8 +34,8 @@ public class Status extends PluginCommand {
                     long minutes = (totalMilliseconds / 1000) / 60;
                     long seconds = (totalMilliseconds / 1000) % 60;
 
-                    p.sendMessage("The Gods are angry.");
-                    p.sendMessage("Their next change will occur in " + minutes + " minutes, and " + seconds + " seconds.");
+                    p.sendMessage("§eThe Gods are §cangry§e.");
+                    p.sendMessage("§eTheir next change will occur in " + minutes + " minutes, and " + seconds + " seconds.");
                     break;
                 case "PEACE":
                     long peaceTime = plugin.getConfig().getLong("game-settings.peace-time");
@@ -45,8 +45,8 @@ public class Status extends PluginCommand {
                     minutes = (totalMilliseconds / 1000) / 60;
                     seconds = (totalMilliseconds / 1000) % 60;
 
-                    p.sendMessage("The Gods are satisfied.");
-                    p.sendMessage("Their next change will occur in " + minutes + " minutes, and " + seconds + " seconds.");
+                    p.sendMessage("§eThe Gods are §asatisfied§e.");
+                    p.sendMessage("§eTheir next change will occur in " + minutes + " minutes, and " + seconds + " seconds.");
                     break;
                 case "GRACE":
                     long graceTime = plugin.getConfig().getLong("game-settings.grace-time");
@@ -61,9 +61,9 @@ public class Status extends PluginCommand {
                     long minutes0 = (offeredTime / 1000) / 60;
                     long seconds1 = (offeredTime / 1000) % 60;
 
-                    p.sendMessage("The Gods are calm.");
-                    p.sendMessage("A total of " + minutes0 + " minutes, and " + seconds1 + " seconds have been offered for protection.");
-                    p.sendMessage("Their next change will occur in " + minutes + " minutes, and " + seconds + " seconds.");
+                    p.sendMessage("§eThe Gods are §9calm§e.");
+                    p.sendMessage("§eA total of §b" + minutes0 + " minutes, and " + seconds1 + " seconds §ehave been offered for protection.");
+                    p.sendMessage("§eTheir next change will occur in " + minutes + " minutes, and " + seconds + " seconds.");
                     break;
             }
         }

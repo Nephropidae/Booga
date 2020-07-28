@@ -9,11 +9,11 @@ commands:
     description: A list of all server rules.
     usage: /<command>
   booga:
-    description: A listing of all of Booga's commands.
+    description: A listing of Booga's commands.
     usage: /<command>
     permission: booga.help
   booga help:
-    description: A listing of all of Booga's commands.
+    description: A listing of Booga's commands.
     usage: /<command> help
     permission: booga.help
   booga status:
@@ -21,28 +21,32 @@ commands:
     usage: /<command> status
     permission: booga.status
   booga offer:
-    description: Sacrifice diamonds to increase peace time and gain good status effects.
+    description: offer diamonds to increase peace time.
     usage: /<command> offer [amount]
     permission: booga.offer
+  booga declare:
+    description: Make a plea for grace or war.
+    usage: /<command> declare [war/grace]
+    permission: booga.declare
   booga claim:
-    description: Claim the chunk you're standing in as your own.
+    description: Claim your current chunk.
     usage: /<command> claim
     permission: booga.claim
   booga unclaim:
-    description: Unclaim the chunk you're standing in.
+    description: Unclaim your current chunk.
     usage: /<command> unclaim
     permission: booga.claim
   booga unclaim all:
-    description: Unclaim all of your owned chunks.
+    description: Unclaim all of your chunks.
     usage: /<command> unclaim all
     permission: booga.claim
   booga explosives:
-    description: Enabled / disable explosives in the chunk you're standing in.
+    description: Toggle explosives in your chunk.
     usage: /<command> explosives [on/off]
     permission: booga.toggle-explosives
 permissions:
   booga.user.*:
-    description: Gives access to all standard Booga commands.
+    description: Gives access to Booga user commands.
     children:
       booga.help: true
       booga.claim: true
@@ -57,14 +61,14 @@ permissions:
     description: Allows you claim / unclaim chunks.
     default: true
   booga.status:
-    description: Allows you to see war / grace / peace time status.
+    description: Allows you to see mode status.
     default: true
   booga.offer:
-    description: Allows you sacrifice diamonds for protection and blessings.
+    description: Allows you offer diamonds.
     default: true
   booga.explosives:
-    description: Allows you to enable or disable explosives in an owned chunk.
+    description: Allows you to toggle explosives in a chunk.
     default: true
   booga.config:
-    description: Allows you to save or reload the current Booga config.
+    description: Allows you to save/reload the Booga config.
     default: false
