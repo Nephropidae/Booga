@@ -2,6 +2,12 @@
 
 ___
 
+NEW:
+
+Refer to the updated project @ [Booga](https://github.com/RaunchySanta/Booga/)
+
+OLD:
+
 I created Booga because I wanted to create my own survival experience. At first, I started with an idea, many in fact. I slowly changed a few things, allowing me to work within my limits. Even though what exists is within my limits, that doesn't mean I won't improve my limits, thus allowing me to revamp some things on Booga.
 
 My original idea was to provide a survival experience where unsecure players could delay war and grief with a simple offering. By sacrificing what would be considered valuable, players would gain blessings (positive status effects) and protection from PvP and Grief. The general idea is that Booga is meant for small servers, usually servers that consist of close friends, or lets players.
